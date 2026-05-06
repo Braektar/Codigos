@@ -13,7 +13,7 @@ class Juego:
     def read_file(self):
         # Leer las cartas y guardarlas en una estructura de datos adecuada
         # NOTA: la primera fila del archivo son los atributos de las cartas
-        
+
         pass
     
     def repartir_cartas(self):
