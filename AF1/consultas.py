@@ -1,8 +1,19 @@
+from cargar import cargar_platos
+from collections import defaultdict
+
 # --- EJEMPLO --- #
 # [Plato1, Plato2, Plato2, Plato4]
 # pasa a ser
 # {"Categoria1": [Plato3, Plato2], "Categoria2": [Plato1, Plato4]}
 def platos_por_categoria(lista_platos: list) -> dict:
+    informacion_platos = cargar_platos("platos.csv")
+    diccionario_final = defaultdict(list)
+    for plato in lista_platos:
+        for info_plato in informacion_platos:
+            if plato == info_plato.nombre:
+                categoria = info_plato.categoria
+                diccionario_final[categoria].append(plato)
+    return(diccionario_final)
     pass
 
 

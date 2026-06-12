@@ -35,3 +35,5 @@ def cargar_ingredientes(ruta_archivo: str) -> dict:
             cantidad = int(linea[1])
             diccionario_ingredientes[nombre] = cantidad
     return(diccionario_ingredientes)
+
+print(cargar_platos)
