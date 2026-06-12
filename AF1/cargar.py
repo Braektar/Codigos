@@ -4,7 +4,7 @@ from collections import namedtuple
 # nombre,categoria,tiempo_preparacion,precio,ingrediente_1,...,ingrediente_n
 def cargar_platos(ruta_archivo: str) -> list:
     lista_final = []
-    Plato = namedtuple("Plato_type", ["nombre", "categoria", "tiempo", "precio", "ingredientes"])
+    Plato = namedtuple("Plato", ["nombre", "categoria", "tiempo", "precio", "ingredientes"])
     with open(ruta_archivo, "rt") as archivo:
         lineas = archivo.readlines()
         for linea in lineas:
@@ -14,19 +14,11 @@ def cargar_platos(ruta_archivo: str) -> list:
             categoria = str(linea[1])
             tiempo = int(linea[2])
             precio = int(linea[3])
-            ingredientes = linea[4:]
-            # if nombre.isalpha() == False:
-            #     print(nombre)
-            #     flag = False
-            # elif categoria.isalpha() == False:
-            #     flag = False
-            # elif tiempo.isdigit() == False:
-            #     flag = False
-            # elif precio.isdigit() == False:
-            #     flag = False
-            # ingredientes = set(ingredientes)
-            # if flag == True:                
-            tupla = Plato(nombre, categoria, tiempo, precio, ingredientes)
+            ingredientes = linea[4].split(";")
+            set_ingredientes = set()
+            for ingrediente in ingredientes:
+                set_ingredientes.add(ingrediente)            
+            tupla = Plato(nombre, categoria, tiempo, precio, set_ingredientes)
             lista_final.append(tupla)
     return(lista_final)
 
@@ -39,7 +31,9 @@ def cargar_platos(ruta_archivo: str) -> list:
 # los datos vienen en este orden el el .csv:
 # nombre,cantidad
 def cargar_ingredientes(ruta_archivo: str) -> dict:
+    diccionario_ingredientes = {}
+    with open(ruta_archivo, "rt") as archivo:
+        lineas = archivo.readlines()
+        for linea in lineas:
+            linea = linea.strip().split(",")
     pass
-
-
-print(cargar_platos("platos.csv"))
