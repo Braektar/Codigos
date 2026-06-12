@@ -22,11 +22,6 @@ def cargar_platos(ruta_archivo: str) -> list:
             lista_final.append(tupla)
     return(lista_final)
 
-
-
-    pass
-
-
 # --- EXPLICACION --- #
 # los datos vienen en este orden el el .csv:
 # nombre,cantidad
@@ -36,4 +31,7 @@ def cargar_ingredientes(ruta_archivo: str) -> dict:
         lineas = archivo.readlines()
         for linea in lineas:
             linea = linea.strip().split(",")
-    pass
+            nombre = linea[0]
+            cantidad = int(linea[1])
+            diccionario_ingredientes[nombre] = cantidad
+    return(diccionario_ingredientes)
