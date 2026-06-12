@@ -2,17 +2,9 @@
 # [Plato1, Plato2, Plato2, Plato4]
 # pasa a ser
 # {"Categoria1": [Plato3, Plato2], "Categoria2": [Plato1, Plato4]}
-
-
 def platos_por_categoria(lista_platos: list) -> dict:
-    diccionario = {}
-    for plato in lista_platos:
-        categoria = plato.categoria
-        if categoria not in diccionario:
-            diccionario[categoria] = []
-        
-        diccionario[categoria].append(plato)
-    return(diccionario)
+    pass
+
 
 # Debe devolver los platos que no tengan ninguno de los ingredientes descartados
 def descartar_platos(ingredientes_descartados: set, lista_platos: list):
