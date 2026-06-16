@@ -12,14 +12,19 @@ def platos_por_categoria(lista_platos: list) -> dict:
         for info_plato in informacion_platos:
             if plato == info_plato.nombre:
                 categoria = info_plato.categoria
-                diccionario_final[categoria].append(plato)
+                diccionario_final[categoria].append(info_plato)
     return(diccionario_final)
-    pass
-
 
 # Debe devolver los platos que no tengan ninguno de los ingredientes descartados
 def descartar_platos(ingredientes_descartados: set, lista_platos: list):
-    pass
+    #asumiendo que namedtuple sigue el patron de cargar_platos
+    #por las dudas, aunque ya viene como set, hare una set de nammedtuple.ingredientes
+    lista_final = []
+    for plato in lista_platos:
+        set_ingredientes = plato.ingredientes
+        if len(ingredientes_descartados - set_ingredientes) == len(ingredientes_descartados):
+            lista_final.append(plato.nombre)
+    return(lista_final)
 
 
 # --- EXPLICACION --- #
@@ -37,10 +42,25 @@ def preparar_plato(plato, ingredientes: dict) -> bool:
 
     return True
 
-
 # --- EXPLICACION --- #
 # Debe retornar un diccionario que agregue toda la información ...
 #  de la lista de platos.
 # precio total, tiempo total, cantidad de platos, platos
 def resumen_orden(lista_platos: list) -> dict:
-    pass
+    #Comenzaré asumiendo que la lista es una nammed tuple
+    precio = 0
+    tiempo = 0
+    cantidad = 0
+    platos = []
+    for plato in lista_platos:
+        precio += plato.precio
+        tiempo += plato.tiempo
+        cantidad += 1
+        platos.append(plato.nombre)
+    diccionario_final = {
+        "precio total": precio,
+        "tiempo total": tiempo,
+        "cantidad de platos": cantidad,
+        "platos": platos
+    }
+    return(diccionario_final)
