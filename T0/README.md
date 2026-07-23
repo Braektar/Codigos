@@ -6,10 +6,10 @@ Tiempo esperado de realización: 2 semanas --> 05-07-2026
 
 ## 1.1. Pasos requeridos:
 
-- [ ] Creación de Menús
-  - [ ] Menú principal
-  - [ ] Creación Menú Usuario
-  - [ ] Creación Menú Administrador
+- [x] Creación de Menús
+  - [x] Menú principal
+  - [x] Creación Menú Usuario
+  - [x] Creación Menú Administrador
 - [ ] Funcionalidades
   - [ ] Inicio de sesión
   - [ ] Creación de usuario
@@ -31,18 +31,21 @@ Tiempo esperado de realización: 2 semanas --> 05-07-2026
 
 Se creará un modulo que contenga unicamente los menús, sin incluir su funcionalidad esperada (por el momento)
 
-### Menú principal
+### 2.1.1. Menú principal
 
 ![alt text](image.png)
 > Ejemplo de menú de inicio
 
-### Menú Usuario
+### 2.1.2. Menú Usuario
 
 ![alt text](image-1.png)
 > Ejemplo de menú de usuario
 
-### Menú administrador
+### 2.1.3. Menú administrador
 
 ![alt text](image-2.png)
 > Ejemplo de menú de administrador
 
+## Funcionalidades
+
+### Inicio de sesión
