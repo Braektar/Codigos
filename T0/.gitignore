@@ -1,0 +1,11 @@
+*.csv
+*.pdf
+*.png
+
+__pycache__/
+*.pyc
+.venv/
+env/
+.env
+*.egg-info/
+.DS_Store
