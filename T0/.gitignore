@@ -1,6 +1,5 @@
 *.csv
 *.pdf
-*.png
 
 __pycache__/
 *.pyc
