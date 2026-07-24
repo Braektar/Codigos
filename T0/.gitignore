@@ -8,3 +8,5 @@ env/
 .env
 *.egg-info/
 .DS_Store
+
+*.drawio

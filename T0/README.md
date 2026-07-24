@@ -48,4 +48,15 @@ Se creará un modulo que contenga unicamente los menús, sin incluir su funciona
 
 ## Funcionalidades
 
+### Menu principal
+
+La gestión de Menus se llevará a cabo a traves de un contador, el cual tendrá el siguiente formato para identificar que menú debe mostrar:
+
+- 0: Menu principal
+- 1: menu iniciar sesión
+- 11: Menu de usuario | opción 1
+- 12: Menu de usuario | Opción 2
+- 2: Menu registrar usuario
+- etc...
+
 ### Inicio de sesión
