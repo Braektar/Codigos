@@ -48,6 +48,8 @@ Se creará un modulo que contenga unicamente los menús, sin incluir su funciona
 
 ## Funcionalidades
 
+Generaré una función que se dedique a verificar si el input escogido está dentro de las opciones.
+
 ### Menu principal
 
 La gestión de Menus se llevará a cabo a traves de un contador, el cual tendrá el siguiente formato para identificar que menú debe mostrar:
