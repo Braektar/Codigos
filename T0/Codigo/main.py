@@ -1,4 +1,6 @@
-import menu
+from menu import (
+    Inicio
+)
 from funciones import (
     get_input
 )
@@ -13,7 +15,7 @@ def main():
 
     while programa_encendido:
         if estado_menu == 0:
-            menu.Inicio()
+            Inicio()
 
         # Menu principal
         respuesta = get_input(4)
@@ -27,6 +29,11 @@ def main():
                 )
             print("\n"+"*"*30)
             programa_encendido = False
+        elif estado_menu == 0 and respuesta == 1:
+
+            pass
+    pass
+
             
 
 
