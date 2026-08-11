@@ -7,15 +7,23 @@ def get_input(op):
         inp = get_input(op)
     return int(inp)
 
-def IniciarSesion():
-    print("** Inicio de sesión **\n")
-    diccionario_usuarios = {}
+
+def DatosUsuarios(diccionario):
     ruta = os.path.join("Codigo", "usuarios.csv")
     with open(ruta, "rt") as archivo:
         lineas = archivo.readlines()
         for linea in lineas:
             usuario, contraseña = linea.strip().split(",")
-            diccionario_usuarios[usuario] = contraseña
+            diccionario[usuario] = contraseña
+    return(diccionario)        
+
+def IniciarSesion(diccionario_usuarios):
+    '''
+    La función recibe el diccionario de usuarios (con el formato de la función DatosUsuarios)
+    Devuelve 1 si inicia sesión correctamente
+    Devuelve 0 si falla al iniciar sesión
+    '''
+    print("** Inicio de sesión **\n")
     usuario = input("Ingrese su usuario: ")
     contraseña = input("Ingrese contraseña: ")
     if usuario not in diccionario_usuarios.keys():
