@@ -44,3 +44,6 @@ def IniciarSesion(diccionario_usuarios):
                 print("Ha ingresado la contraseña incorrecta demasiadas veces, volviendo al menú principal")
                 return(0)
             intentos += 1
+
+def CrearUsuario(diccionario):
+    pass

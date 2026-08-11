@@ -2,13 +2,27 @@ from menu import (
     Inicio
 )
 from funciones import (
-    get_input
+    get_input,
+    DatosUsuarios,
+    IniciarSesion
 )
+
+def ApagarPrograma():
+    print("\n"+"*"*30)
+    print(
+        "\n Muchas gracias por confiar en nosotros\n"
+        "Atentantemente\n"
+        "DCCoreos"
+        )
+    print("\n"+"*"*30)
+    return(False)
 
 
 def main():
 
     print("---- Bienvenid@ a DCCorreos de Chile ---\n")
+    diccionario_usuarios = DatosUsuarios(dict())
+    usuarios_registrados = set(diccionario_usuarios.keys())
 
     estado_menu = 0
     programa_encendido = True
@@ -20,16 +34,17 @@ def main():
         # Menu principal
         respuesta = get_input(4)
 
+        ## Estado menu = 0 (Ventana inicial)
+        ## Apagar programa
         if estado_menu == 0 and respuesta == 4:
-            print("\n"+"*"*30)
-            print(
-                "\n Muchas gracias por confiar en nosotros\n"
-                "Atentantemente\n"
-                "DCCoreos"
-                )
-            print("\n"+"*"*30)
-            programa_encendido = False
+            programa_encendido = ApagarPrograma()
+
+        ## Iniciar sesión como usuario
         elif estado_menu == 0 and respuesta == 1:
+            estado_menu = IniciarSesion(diccionario_usuarios) # devuelve 1 si inicia correctamente, 0 si no            
+
+        ## Registrarse como usuario
+        elif estado_menu == 0 and respuesta == 2:
 
             pass
     pass
