@@ -4,7 +4,8 @@ from menu import (
 from funciones import (
     get_input,
     DatosUsuarios,
-    IniciarSesion
+    IniciarSesion,
+    CrearUsuario
 )
 
 def ApagarPrograma():
@@ -45,7 +46,7 @@ def main():
 
         ## Registrarse como usuario
         elif estado_menu == 0 and respuesta == 2:
-
+            diccionario_usuarios = CrearUsuario()
             pass
     pass
 

@@ -11,7 +11,7 @@ Tiempo esperado de realización: 2 semanas --> 05-07-2026
   - [x] Creación Menú Usuario
   - [x] Creación Menú Administrador
 - [ ] Funcionalidades
-  - [ ] Inicio de sesión
+  - [x] Inicio de sesión
   - [ ] Creación de usuario
   - [ ] Inicio sesión administrador
 - [ ] Menu Usuario

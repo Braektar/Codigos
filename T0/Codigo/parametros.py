@@ -1,3 +1,5 @@
+import os
+
 # Mínimo de caracteres que debe tener el nombre de un nuevo usuario
 MIN_CARACTERES = 5
 
@@ -9,3 +11,6 @@ MAX_PESO = 50
 
 # Largo mínimo de la contraseña
 LARGO_CONTRASENA = 6
+
+# Ruta
+RUTA_USUARIOS = os.path.join("Codigo", "usuarios.csv")
