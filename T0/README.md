@@ -10,10 +10,10 @@ Tiempo esperado de realización: 2 semanas --> 05-07-2026
   - [x] Menú principal
   - [x] Creación Menú Usuario
   - [x] Creación Menú Administrador
-- [ ] Funcionalidades
+- [x] Funcionalidades
   - [x] Inicio de sesión
-  - [ ] Creación de usuario
-  - [ ] Inicio sesión administrador
+  - [x] Creación de usuario
+  - [x] Inicio sesión administrador
 - [ ] Menu Usuario
   - [ ] Ingresar encomienda
   - [ ] Revisar estado de encomienda
@@ -61,4 +61,46 @@ La gestión de Menus se llevará a cabo a traves de un contador, el cual tendrá
 - 2: Menu registrar usuario
 - etc...
 
-### Inicio de sesión
+## Modulo funciones.py
+
+### get_input(op)
+
+La función recibe el mayor valor numerico y solicita un valor. Verifica que el valor se encuentre dentro del rango [1, valor]. De encontrarse en el rango, devuelve el número.
+
+### DatosUsuarios
+
+La función recibe un diccionario y una ruta. Los valores predeterminados son un diccionario vacío y la ruta de usuarios.csv, el cual debe encontrarse en una carpeta llamada Codigo.
+
+La función devuelve un diccionario con los datos de usuario y contraseña.
+
+### IniciarSesion
+
+La función recibe un diccionario de usuarios con el formato [usuario] = Contraseña.
+
+La función pide un nombre de usuario y verifica que se encuentre dentro del diccionario. Si no existe, se devuelve al menu principal.
+
+Si el usuario existe, se le solicita la contraseña. La función da 3 intentos para ingresar correctamente.
+
+Si falla, vuelve al menu principal. Si ingresa correctamente la contraseña, avanza al menú de usuario.
+
+### CrearUsuario
+
+La función recibe la ruta del archivo csv y devuelve un diccionario [Usuario] = contraseña.
+
+La función solicita un nombre de usuario y contraseña.
+
+Si el nombre de usuario ya existe, devuelve el diccionario original.
+
+Si el nombre no existe, confirma que el nombre tenga el minimo de caracteres permitido.
+
+Si tiene el minimo de caracteres, solicita contraseña, el cual revisa si tiene el minimo de caracteres permitidos.
+
+Si se cumplen todas las funciones, se actualiza el diccionario y se agrega la información al archivo usuarios.csv
+
+### InicioAdmin
+
+La función no recibe datos.
+
+La función solicita la contraseña de administrador. Si esta es incorrecta, consulta si quiere reintentar o volver al menú.
+
+Si la contraseña es correcta, se avanza al siguiente menú.
