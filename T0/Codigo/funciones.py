@@ -2,7 +2,8 @@ import os
 from parametros import (
     MIN_CARACTERES,
     LARGO_CONTRASENA,
-    RUTA_USUARIOS
+    RUTA_USUARIOS,
+    CONTRASENA_ADMIN
 )
 
 ruta = RUTA_USUARIOS
@@ -61,7 +62,6 @@ def CrearUsuario(ruta = ruta):
     nombre = input("Ingrese nombre de usuario: ")
     if nombre in set_usuarios:
         print("Nombre de usuario ya existe\n")
-        return(diccionario)
     elif len(nombre) < MIN_CARACTERES:
         print("Nombre de usuario tiene un largo menor al permitido\n")
     else:
@@ -69,7 +69,6 @@ def CrearUsuario(ruta = ruta):
         contraseña = input("Ingrese contraseña: ")
         if len(contraseña) < LARGO_CONTRASENA:
             print("El largo de contraseña es menor al permitido\n")
-            return(diccionario)
         else:
             print("Usuario ingresado correctamente")
             diccionario[nombre] = contraseña
@@ -78,4 +77,22 @@ def CrearUsuario(ruta = ruta):
                     fila = [usuario, contraseña]
                     fila_en_texto = ",".join(fila) + "\n"
                     archivo.write(fila_en_texto)
-            return(diccionario)
+    return(diccionario)
+
+def InicioAdmin():
+    print("\n *** Menú de inicio de administrador ***\n")
+    flag = True
+    while flag:
+        intento = input("Ingrese la contraseña de administrador: ")
+        if intento == CONTRASENA_ADMIN:
+            print("\n-- Inicio de sesión correcto, bienvenido administrador --\n")
+            return(1)
+        else:
+            print("Contraseña incorrecta\n"
+                  "\n¿Quiere volver a intentar?\n"
+                  "\n [1] Reintentar inicio de sesión"
+                  "\n [2] Volver al menú de inicio\n")
+            respuesta = get_input(2)
+            if respuesta == 2:
+                flag = False
+                return(0)

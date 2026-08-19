@@ -1,11 +1,13 @@
 from menu import (
-    Inicio
+    Inicio,
+    Usuario
 )
 from funciones import (
     get_input,
     DatosUsuarios,
     IniciarSesion,
-    CrearUsuario
+    CrearUsuario,
+    InicioAdmin
 )
 
 def ApagarPrograma():
@@ -31,9 +33,8 @@ def main():
     while programa_encendido:
         if estado_menu == 0:
             Inicio()
-
-        # Menu principal
-        respuesta = get_input(4)
+            respuesta = get_input(4)
+        # Menu principal        
 
         ## Estado menu = 0 (Ventana inicial)
         ## Apagar programa
@@ -47,7 +48,27 @@ def main():
         ## Registrarse como usuario
         elif estado_menu == 0 and respuesta == 2:
             diccionario_usuarios = CrearUsuario()
+            estado_menu == 1
+
+        elif estado_menu == 0 and respuesta == 3:
+            resultado_admin = InicioAdmin()
             pass
+
+
+        ## Menú usuario
+        if estado_menu == 1:
+            Usuario()
+            respuesta = get_input(5)
+
+            if respuesta == 5:
+                estado_menu = 0
+
+            elif respuesta == 1:
+                pass
+
+
+            
+        
     pass
 
             
