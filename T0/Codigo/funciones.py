@@ -96,3 +96,11 @@ def InicioAdmin():
             if respuesta == 2:
                 flag = False
                 return(0)
+
+# función rapida para no reescribir error en menu de encomiendas
+def Error2():
+    print("¿Quiere volver a intentar?\n\n" \
+            "[1] Intentar nuevamente\n" \
+            "[2] Volver al menu anterior\n")
+    respuesta = get_input(2)
+    return(respuesta)
