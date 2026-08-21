@@ -15,7 +15,10 @@ Tiempo esperado de realización: 2 semanas --> 05-07-2026
   - [x] Creación de usuario
   - [x] Inicio sesión administrador
 - [ ] Menu Usuario
-  - [ ] Ingresar encomienda
+  - [x] Ingresar encomienda
+    - [x] Solicitud de información
+    - [x] Verificación de información correcta
+    - [ ] Carga de encomienda a archivo.csv
   - [ ] Revisar estado de encomienda
   - [ ] Realizar reclamo
   - [ ] Ver estado de pedidos personales
@@ -46,11 +49,11 @@ Se creará un modulo que contenga unicamente los menús, sin incluir su funciona
 ![alt text](image-2.png)
 > Ejemplo de menú de administrador
 
-## Funcionalidades
+## 2.2. Funcionalidades
 
 Generaré una función que se dedique a verificar si el input escogido está dentro de las opciones.
 
-### Menu principal
+### 2.2.1. Menu principal
 
 La gestión de Menus se llevará a cabo a traves de un contador, el cual tendrá el siguiente formato para identificar que menú debe mostrar:
 
@@ -61,19 +64,19 @@ La gestión de Menus se llevará a cabo a traves de un contador, el cual tendrá
 - 2: Menu registrar usuario
 - etc...
 
-## Modulo funciones.py
+## 2.3. Modulo funciones.py
 
-### get_input(op)
+### 2.3.1. get_input(op)
 
 La función recibe el mayor valor numerico y solicita un valor. Verifica que el valor se encuentre dentro del rango [1, valor]. De encontrarse en el rango, devuelve el número.
 
-### DatosUsuarios
+### 2.3.2. DatosUsuarios
 
 La función recibe un diccionario y una ruta. Los valores predeterminados son un diccionario vacío y la ruta de usuarios.csv, el cual debe encontrarse en una carpeta llamada Codigo.
 
 La función devuelve un diccionario con los datos de usuario y contraseña.
 
-### IniciarSesion
+### 2.3.3. IniciarSesion
 
 La función recibe un diccionario de usuarios con el formato [usuario] = Contraseña.
 
@@ -83,7 +86,7 @@ Si el usuario existe, se le solicita la contraseña. La función da 3 intentos p
 
 Si falla, vuelve al menu principal. Si ingresa correctamente la contraseña, avanza al menú de usuario.
 
-### CrearUsuario
+### 2.3.4. CrearUsuario
 
 La función recibe la ruta del archivo csv y devuelve un diccionario [Usuario] = contraseña.
 
@@ -97,10 +100,26 @@ Si tiene el minimo de caracteres, solicita contraseña, el cual revisa si tiene 
 
 Si se cumplen todas las funciones, se actualiza el diccionario y se agrega la información al archivo usuarios.csv
 
-### InicioAdmin
+### 2.3.5. InicioAdmin
 
 La función no recibe datos.
 
 La función solicita la contraseña de administrador. Si esta es incorrecta, consulta si quiere reintentar o volver al menú.
 
 Si la contraseña es correcta, se avanza al siguiente menú.
+
+## 2.4. Modulo Menu.py
+
+Este modulo contiene la base de los imprimibles del menu Inicio, Usuario y Admin.
+
+Además de eso, se generan algunos menús mas complejos y con funcionalidades, como las indicadas a continuación
+
+### 2.4.1. Encomiendas
+
+La función encomiendas pide un set de usuarios registrados. El menú indica los campos que se van a solicitar y verifica que la información entregada es correcta.
+
+En caso de ser incorrecta y que el usuario quiera salir de la operación, la función devolverá un 0, indicando un fallo.
+
+En caso contrario, la función actualizará el archivo de encomiendas.csv con la nueva información proporcionada
+
+**Pendiente: Finalizar carga de información al archivo**
