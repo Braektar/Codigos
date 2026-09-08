@@ -1,6 +1,6 @@
 from funciones import get_input, Error2, DatosUsuarios
 from parametros import MAX_PESO
-from parametros import RUTA_ENCOMIENDAS
+from parametros import RUTA_ENCOMIENDAS, RUTA_RECLAMOS
 from datetime import datetime
 
 
@@ -19,8 +19,7 @@ def Usuario():
     print("[1] Hacer encomienda")
     print("[2] Revisar estado de encomiendas realizadas")
     print("[3] Realizar reclamos")
-    print("[4] Ver el estado de los pedidos personales")
-    print("[5] Cerrar sesión\n")
+    print("[4] Cerrar sesión\n")
 
     return()
 
@@ -35,7 +34,6 @@ def Admin():
 
 
 def Encomiendas(usuarios_registrados: set):
-    print(usuarios_registrados)
     print("** Ha seleccionado el menú de encomiendas **\n\n" \
           
     "Se le solicitará los siguientes campos\n \n"
@@ -132,4 +130,60 @@ def Encomiendas(usuarios_registrados: set):
                 archivo.write(fila_en_texto)
     return(1)           
 
-Encomiendas(set(DatosUsuarios().keys()))
+def EstadoEncomienda(usuario_activo: str):
+    ruta = RUTA_ENCOMIENDAS
+    encomiendas = []
+    with open(ruta, "rt") as archivo:
+        lineas = archivo.readlines()
+
+    for linea in lineas:
+        linea = linea.strip().split(',')
+        nombre, usuario,_, _, _, estado = linea
+        if usuario == usuario_activo:
+            encomiendas.append([nombre, estado])
+
+    print("** Estado de encomiendas **\n\n" \
+    f"Usuario activo: << {usuario_activo} >> \n")
+    for encomienda in encomiendas:
+        nombre, estado = encomienda        
+        print(f"\nNombre de encomienda: {nombre}\n"
+              f"Estado de encomienda: {estado}")
+        print("-"*100)
+    return(1)
+        
+def RealizarReclamo(usuario_activo: str):
+    print("** Menu de reclamos **\n\n")
+    print("Usted está a punto de realizar un reclamo\n" \
+    "Si quiere continuar, presione [1]\n" \
+    "Si quire volver, presione [2]\n")
+    respuesta = get_input(2)
+
+    if respuesta == 2:
+        return(1)
+
+    titulo = input("Ingrese el titulo de su reclamo: ")
+    print()
+    descripcion = input("Ingrese la descripción de su reclamo: ")
+
+    reclamo = [usuario_activo, titulo, descripcion]
+    ruta = RUTA_RECLAMOS
+    reclamos = []
+
+    with open(ruta, "rt") as archivo:
+        lineas = archivo.readlines()
+
+    for linea in lineas:
+        fila = linea.strip().split(',')
+        reclamos.append(fila)
+    reclamos.append(reclamo)
+
+    with open(ruta, "wt") as archivo:
+        for fila in reclamos:
+                fila_en_texto = ",".join(fila) + "\n"
+                archivo.write(fila_en_texto)
+
+    print(">>> Reclamo realizado correctamente <<<")
+    return(1)
+
+
+

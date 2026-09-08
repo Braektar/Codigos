@@ -17,3 +17,6 @@ RUTA_USUARIOS = os.path.join("Codigo", "usuarios.csv")
 
 # Ruta encomiendas
 RUTA_ENCOMIENDAS = os.path.join("Codigo", "encomiendas.csv")
+
+# Ruta reclamos
+RUTA_RECLAMOS = os.path.join("Codigo", "reclamos.csv")
