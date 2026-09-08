@@ -14,3 +14,6 @@ LARGO_CONTRASENA = 6
 
 # Ruta
 RUTA_USUARIOS = os.path.join("Codigo", "usuarios.csv")
+
+# Ruta encomiendas
+RUTA_ENCOMIENDAS = os.path.join("Codigo", "encomiendas.csv")
