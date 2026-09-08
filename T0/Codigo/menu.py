@@ -1,5 +1,8 @@
 from funciones import get_input, Error2, DatosUsuarios
 from parametros import MAX_PESO
+from parametros import RUTA_ENCOMIENDAS
+from datetime import datetime
+
 
 def Inicio():
     print("** Menú de Inicio **\n")
@@ -86,10 +89,13 @@ def Encomiendas(usuarios_registrados: set):
                     return(0)
             else:
                 flag_peso = False
+                peso = str(peso)
 
         # Destino
         while flag_destino:
-            destino = input("Ingrese nombre del artículo: ")
+            print("\n\nIngrese la dirección destino\n" \
+            "El nombre del destino no puede tener comas (,)\n")
+            destino = input("Ingrese la dirección del destino: ")
             if "," in destino:
                 print("Valor ingresado correcto, contiene una coma (,) en el nombre\n")
                 respuesta = Error2()
@@ -105,10 +111,25 @@ def Encomiendas(usuarios_registrados: set):
     print("Datos de la encomienda ingresada:\n" \
     f" -Nombre de encomienda: {nombre}\n -Nombre de receptor: {receptor}\n -Peso de encomienda: {peso}\n"
     f" -Destino de encomienda: {destino}")
+    ruta = RUTA_ENCOMIENDAS
+    filas = []
 
-    
-                
+    with open(ruta, "rt") as archivo:
+        lineas = archivo.readlines()
 
-    pass
+    for linea in lineas:
+        fila = linea.strip().split(',')
+        filas.append(fila)
+
+    ahora = datetime.now()
+    hora_formateada = ahora.strftime("%Y/%m/%d %H:%M:%S")
+    fila = [nombre, receptor, peso, destino, hora_formateada, "Emitida"]
+    filas.append(fila)
+
+    with open(ruta, "wt") as archivo:
+        for fila in filas:
+                fila_en_texto = ",".join(fila) + "\n"
+                archivo.write(fila_en_texto)
+    return(1)           
 
 Encomiendas(set(DatosUsuarios().keys()))
