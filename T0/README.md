@@ -18,7 +18,7 @@ Tiempo esperado de realización: 2 semanas --> 05-07-2026
   - [x] Ingresar encomienda
     - [x] Solicitud de información
     - [x] Verificación de información correcta
-    - [ ] Carga de encomienda a archivo.csv
+    - [x] Carga de encomienda a archivo.csv
   - [ ] Revisar estado de encomienda
   - [ ] Realizar reclamo
   - [ ] Ver estado de pedidos personales
@@ -86,6 +86,8 @@ Si el usuario existe, se le solicita la contraseña. La función da 3 intentos p
 
 Si falla, vuelve al menu principal. Si ingresa correctamente la contraseña, avanza al menú de usuario.
 
+La función retorna la tupla (estado menu, usuario activo). Si falla el inicio, el retorno es (0, None), si inicia correctamente, devuelve (1, usuario_activo)
+
 ### 2.3.4. CrearUsuario
 
 La función recibe la ruta del archivo csv y devuelve un diccionario [Usuario] = contraseña.
@@ -120,6 +122,11 @@ La función encomiendas pide un set de usuarios registrados. El menú indica los
 
 En caso de ser incorrecta y que el usuario quiera salir de la operación, la función devolverá un 0, indicando un fallo.
 
-En caso contrario, la función actualizará el archivo de encomiendas.csv con la nueva información proporcionada
+En caso contrario, la función actualizará el archivo de encomiendas.csv con la nueva información proporcionada y retornará 1.
 
-**Pendiente: Finalizar carga de información al archivo**
+### Revisar encomienda
+
+> por hacer:
+> Se debe obtener el valor del usuario registrado en el menú.
+> AL tener el usuario, basta con leer el archivo y traer unicamente la información del usuario.
+

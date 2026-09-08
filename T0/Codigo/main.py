@@ -43,7 +43,8 @@ def main():
 
         ## Iniciar sesión como usuario
         elif estado_menu == 0 and respuesta == 1:
-            estado_menu = IniciarSesion(diccionario_usuarios) # devuelve 1 si inicia correctamente, 0 si no            
+            estado_menu, usuario_activo = IniciarSesion(diccionario_usuarios) # devuelve 1 si inicia correctamente, 0 si no.
+            # tambien trae el usuario activo. Si no inicia sesión, el valor está en blanco.     
 
         ## Registrarse como usuario
         elif estado_menu == 0 and respuesta == 2:

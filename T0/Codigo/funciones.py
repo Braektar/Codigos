@@ -37,7 +37,7 @@ def IniciarSesion(diccionario_usuarios: dict):
     if usuario not in diccionario_usuarios.keys():
         print("\n-- Usuario no registrado --\n"
               "\nDebe registrar su usuario si quiere iniciar sesión\n")
-        return(0)
+        return(0, None)
     else:
         intentos = 1
         while intentos <= 3:
@@ -47,10 +47,10 @@ def IniciarSesion(diccionario_usuarios: dict):
             else:
                 print("\n----- Bienvenido -----")
                 intentos = 4
-                return(1)
+                return(1, usuario)
             if intentos == 3:
                 print("Ha ingresado la contraseña incorrecta demasiadas veces, volviendo al menú principal")
-                return(0)
+                return(0, None)
             intentos += 1
 
 def CrearUsuario(ruta = ruta):
