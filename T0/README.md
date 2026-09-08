@@ -19,8 +19,8 @@ Tiempo esperado de realización: 2 semanas --> 05-07-2026
     - [x] Solicitud de información
     - [x] Verificación de información correcta
     - [x] Carga de encomienda a archivo.csv
-  - [ ] Revisar estado de encomienda
-  - [ ] Realizar reclamo
+  - [x] Revisar estado de encomienda
+  - [x] Realizar reclamo
   - [ ] Ver estado de pedidos personales
   - [ ] Cerrar sesión
 - [ ] Menu administrador
@@ -126,7 +126,5 @@ En caso contrario, la función actualizará el archivo de encomiendas.csv con la
 
 ### Revisar encomienda
 
-> por hacer:
-> Se debe obtener el valor del usuario registrado en el menú.
-> AL tener el usuario, basta con leer el archivo y traer unicamente la información del usuario.
+La funcion EstadoEncomienda solicita al usuario activo en la sesión. Muestra en pantalla el nombre y el estado de sus encomiendas, y devuelve 1
 
