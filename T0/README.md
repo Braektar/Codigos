@@ -23,10 +23,10 @@ Tiempo esperado de realización: 2 semanas --> 05-07-2026
   - [x] Realizar reclamo
   - [x] Ver estado de pedidos personales
   - [x] Cerrar sesión
-- [ ] Menu administrador
-  - [ ] Actualizar encomiendas
+- [x] Menu administrador
+  - [x] Actualizar encomiendas
   - [ ] Revisar reclamos
-  - [ ] Cerrar sesión
+  - [x] Cerrar sesión
 
 # 2. Especificos
 

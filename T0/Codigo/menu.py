@@ -246,6 +246,9 @@ def ActualizarEncomiendas():
     return(2)
 
 def RevisarReclamos():
+    # Formato reclamos = usuario,titulo,descripcion
+
+    diccionario_reclamos = {}
     
 
 
