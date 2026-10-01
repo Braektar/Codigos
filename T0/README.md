@@ -14,15 +14,15 @@ Tiempo esperado de realización: 2 semanas --> 05-07-2026
   - [x] Inicio de sesión
   - [x] Creación de usuario
   - [x] Inicio sesión administrador
-- [ ] Menu Usuario
+- [x] Menu Usuario
   - [x] Ingresar encomienda
     - [x] Solicitud de información
     - [x] Verificación de información correcta
     - [x] Carga de encomienda a archivo.csv
   - [x] Revisar estado de encomienda
   - [x] Realizar reclamo
-  - [ ] Ver estado de pedidos personales
-  - [ ] Cerrar sesión
+  - [x] Ver estado de pedidos personales
+  - [x] Cerrar sesión
 - [ ] Menu administrador
   - [ ] Actualizar encomiendas
   - [ ] Revisar reclamos
@@ -133,3 +133,18 @@ La funcion EstadoEncomienda solicita al usuario activo en la sesión. Muestra en
 La función RealizarReclamo solicita el usuario activo de la sesión. La función ingresa el titulo y descripción del reclamo al archivo reclamos.csv, el cual debe estar contenido en la carpeta Codigo.
 
 La función devuelve 1.
+
+
+### ActualizarEncomiendas
+
+La función no pide un valor de entrada.
+
+La función lee el archivo de encomiendas y genera un diccionario = [Indice] = información de encomienda.
+
+El usuario tiene la opción de seleccionar el item del diccionario que será actualizado.
+
+Luego de actualizar, se revisa que el estado no sea el estado final y es actualizado.
+
+Posteriormente, se utiliza este diccionario para actualizar el archivo csv.
+
+La función devuelve el valor 2, que es el menú de administrador en el archivo main.

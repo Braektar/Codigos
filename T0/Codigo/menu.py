@@ -185,5 +185,68 @@ def RealizarReclamo(usuario_activo: str):
     print(">>> Reclamo realizado correctamente <<<")
     return(1)
 
+def ActualizarEncomiendas():
+    print("** Encomiendas registradas **\n\n")
+
+    print("   "
+    "|      Nombre artículo      |    Receptor    |  Peso  |   Destino   |      Estado      |\n")
+
+    Encomiendas = {}
+    ruta = RUTA_ENCOMIENDAS
+
+    # Lectura de archivo
+    with open(ruta, "rt") as archivo:
+        lineas = archivo.readlines()
+
+    # Preparación de diccionario de encomiendas
+    indice = 0
+    for linea in lineas:
+        fila = linea.strip().split(',')
+        Encomiendas[indice] = fila
+        nombre, receptor, peso, destino, _, estado = fila
+        if indice != 0:
+            peso = float(peso)
+            print(f"[{indice}]"
+                f" {nombre:^27.26s}|"
+                f" {receptor:^15.14s}|"
+                f" {peso:^7.1f}|"
+                f" {destino:<12.11s}|"
+                f" {estado:^17.16s}|")
+        indice += 1
+
+    print(f"\n[{indice}] Volver")
+
+    seleccion = get_input(indice)
+    if seleccion == indice:
+        print("Volviendo al menu anterior ...\n\n")
+        return(2)
+
+    estados = ["Emitida", "Revisada por agencia", "En camino", "Llegada al destino"]
+    nombre, receptor, peso, destino, hora, estado_encomienda = Encomiendas[seleccion]
+
+    contador = 0
+    while contador < len(estados):
+        if contador + 1 == len(estados):
+            print("\n !! La encomienda ya se encuentra finalizada !!\n\n"
+                  "Volviendo al menú anterior ...\n\n")
+            return(2)
+        if estados[contador] == estado_encomienda:
+            estado_encomienda = estados[contador + 1]
+            print(f"\nEl estado de la encomienda {nombre} fue actualizado exitosamente a < {estado_encomienda} >\n\n")
+            contador = len(estados)
+        contador += 1
+
+    Encomiendas[seleccion] = [nombre, receptor, peso, destino, hora, estado_encomienda]
+
+    with open(ruta, "wt") as archivo:
+            for fila in Encomiendas.values():
+                    fila_en_texto = ",".join(fila) + "\n"
+                    archivo.write(fila_en_texto)
+
+    return(2)
+
+def RevisarReclamos():
+    
 
 
+    return(2)

@@ -1,9 +1,11 @@
 from menu import (
     Inicio,
+    Admin,
     Usuario,
     Encomiendas,
     EstadoEncomienda,
-    RealizarReclamo
+    RealizarReclamo,
+    ActualizarEncomiendas
 )
 from funciones import (
     get_input,
@@ -58,7 +60,10 @@ def main():
 
         elif estado_menu == 0 and respuesta == 3:
             resultado_admin = InicioAdmin()
-            pass
+            if resultado_admin == 1:
+                estado_menu = 2
+            else:
+                estado_menu = 0
 
 
         ## Menú usuario
@@ -81,7 +86,24 @@ def main():
             ## Menú Reclamos
             elif respuesta == 3:
                 estado_menu = RealizarReclamo(usuario_activo)
-                   
+
+        ## Menú Admin
+        if estado_menu == 2:
+            Admin()
+            respuesta = get_input(3)
+
+            ## Volver al menú anterior
+            if respuesta == 3:
+                estado_menu = 0
+
+            ## Actualizar encomiendas
+            elif respuesta == 1:
+                estado_menu = ActualizarEncomiendas()
+
+            ## Revisar reclamos
+            elif respuesta == 2:
+
+                pass                  
         
     pass
 
