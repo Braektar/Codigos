@@ -128,3 +128,8 @@ En caso contrario, la función actualizará el archivo de encomiendas.csv con la
 
 La funcion EstadoEncomienda solicita al usuario activo en la sesión. Muestra en pantalla el nombre y el estado de sus encomiendas, y devuelve 1
 
+### Realizar reclamo
+
+La función RealizarReclamo solicita el usuario activo de la sesión. La función ingresa el titulo y descripción del reclamo al archivo reclamos.csv, el cual debe estar contenido en la carpeta Codigo.
+
+La función devuelve 1.
