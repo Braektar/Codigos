@@ -5,7 +5,8 @@ from menu import (
     Encomiendas,
     EstadoEncomienda,
     RealizarReclamo,
-    ActualizarEncomiendas
+    ActualizarEncomiendas,
+    RevisarReclamos
 )
 from funciones import (
     get_input,
@@ -102,12 +103,7 @@ def main():
 
             ## Revisar reclamos
             elif respuesta == 2:
-
-                pass                  
-        
-    pass
-
-            
+                estado_menu = RevisarReclamos()           
 
 
 if __name__ == "__main__":

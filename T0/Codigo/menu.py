@@ -56,7 +56,7 @@ def Encomiendas(usuarios_registrados: set):
                 print("Valor ingresado correcto, contiene una coma (,) en el nombre\n")
                 respuesta = Error2()
                 if respuesta == 2:
-                    return(0)
+                    return(1)
             else:
                 flag_nombre = False
 
@@ -71,7 +71,7 @@ def Encomiendas(usuarios_registrados: set):
                 print("\nEl receptor no se encuentra ingresado como usuario en la plataforma\n")
                 respuesta = Error2()
                 if respuesta == 2:
-                    return(0)
+                    return(1)
             else: 
                 flag_receptor = False
 
@@ -84,7 +84,7 @@ def Encomiendas(usuarios_registrados: set):
                 print("\n ¡¡ Alerta !! \nPeso del artículo excede peso permitido")
                 respuesta = Error2()
                 if respuesta == 2:
-                    return(0)
+                    return(1)
             else:
                 flag_peso = False
                 peso = str(peso)
@@ -98,7 +98,7 @@ def Encomiendas(usuarios_registrados: set):
                 print("Valor ingresado correcto, contiene una coma (,) en el nombre\n")
                 respuesta = Error2()
                 if respuesta == 2:
-                    return(0)
+                    return(1)
             else:
                 flag_destino = False
 
@@ -247,9 +247,49 @@ def ActualizarEncomiendas():
 
 def RevisarReclamos():
     # Formato reclamos = usuario,titulo,descripcion
+    print("** Reclamos registrados **\n\n")
 
     diccionario_reclamos = {}
-    
+    ruta = RUTA_RECLAMOS
 
+    with open(ruta, "rt") as archivo:
+        lineas = archivo.readlines()
 
+    #flag para el loop de reclamos
+    flag = True
+
+    # Preparación diccionario de reclamos
+    indice = 0
+    for linea in lineas:
+        fila = linea.strip().split(',')
+        diccionario_reclamos[indice] = fila
+        usuario, titulo, descripcion = ''.join(fila[0]), ''.join(fila[1]), ''.join(fila[2:])
+        diccionario_reclamos[indice] = [usuario, titulo, descripcion]
+        indice += 1
+
+    while flag:
+        for indice in diccionario_reclamos:
+            if indice != 0:
+                usuario, titulo, descripcion = diccionario_reclamos[indice]
+                print(f"[{indice}]"
+                      f" << {titulo:20.64s} >>")
+        print(f"\n[{indice + 1}] Volver a menu anterior")
+        seleccion = get_input(indice + 1)
+
+        if seleccion == indice + 1:
+            flag = False
+
+        else:
+            usuario, titulo, descripcion = diccionario_reclamos[seleccion]
+            print(
+                  f"\n\nTITULO: {titulo:20.64s}\n\n"
+                  f"USUARIO: {usuario:20.64s}\n"
+                  + "-" * 64 +
+                  f"\nDESCRIPCION: {descripcion}\n\n"
+                  f"[1] Volver a menú anterior\n"
+                  f"[2] Salir de menú de reclamos\n"
+            )
+            seleccion = get_input(2)
+            if seleccion == 2:
+                flag = False
     return(2)
