@@ -25,7 +25,7 @@ Tiempo esperado de realización: 2 semanas --> 05-07-2026
   - [x] Cerrar sesión
 - [x] Menu administrador
   - [x] Actualizar encomiendas
-  - [ ] Revisar reclamos
+  - [x] Revisar reclamos
   - [x] Cerrar sesión
 
 # 2. Especificos
